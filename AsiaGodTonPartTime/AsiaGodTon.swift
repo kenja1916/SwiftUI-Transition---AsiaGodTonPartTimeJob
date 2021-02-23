@@ -28,7 +28,7 @@ struct ManEffect: AnimatableModifier {
 
     func body(content: Content) -> some View {
         return content
-            .modifier(ShakeEffect(degree: 10, shakes: 3, pct: progress.focused(between: 0...walkRatio, defaultValue: walkRatio)*100/walkRatio))
+            .modifier(ShakeEffect(degree: 10, shakes: 4, pct: progress.focused(between: 0...walkRatio, defaultValue: walkRatio)*100/walkRatio))
             .rotationEffect(Angle(degrees: 80*(progress.focused(between: walkRatio...100, operation: { $0 - walkRatio }, defaultValue: 0)/fallRatio)), anchor: .center)
             .transformEffect(CGAffineTransform(translationX: -xLength*CGFloat(progress.focused(between: 0...walkRatio, defaultValue: walkRatio)/walkRatio), y: -yLength*CGFloat(progress.focused(between: 0...walkRatio, defaultValue: walkRatio)/walkRatio))
                                 .concatenating(CGAffineTransform(translationX: xLength/2, y: yLength/2)))
@@ -69,7 +69,7 @@ struct TonEffect: AnimatableModifier {
         let y: CGFloat = progress > walkRatio ? yDis - yDis*CGFloat((progress-walkRatio)/fallRatio): yDis
         return content
             .scaleEffect(progress > walkRatio ? 0.3+0.7*CGFloat(progress-80)/20 : 0.3)
-            .modifier(ShakeEffect(degree: 10, shakes: 3, pct: progress.focused(between: 0...walkRatio, defaultValue: walkRatio)*100/walkRatio))
+            .modifier(ShakeEffect(degree: 10, shakes: 4, pct: progress.focused(between: 0...walkRatio, defaultValue: walkRatio)*100/walkRatio))
             .rotationEffect(Angle(degrees: 360*(progress.focused(between: walkRatio...100, operation: { (value) -> Double in
                 value - walkRatio
             }, defaultValue: 0)/fallRatio)), anchor: .center)

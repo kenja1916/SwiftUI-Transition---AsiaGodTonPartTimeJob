@@ -23,7 +23,7 @@ struct FirstPageView: View {
                 SecondPageView(isPresent: $isStart)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(Color(UIColor.cyan))
-                    .transition(AnyTransition.asiaGodTon.animation(.linear(duration: 2)))
+                    .transition(AnyTransition.asiaGodTon.animation(.linear(duration: 2.5)))
             }
         }
     }
